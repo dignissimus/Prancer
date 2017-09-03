@@ -19,7 +19,7 @@ class Prancer:
         Args (str): The dor separated IP address to encode
             ip:
 
-        Returns: a hex-string version to be sent in an ARP request or response
+        Returns: a hex-string version of the ip to be sent in an ARP request or response
 
         """
         return ''.join(map(lambda number: '{0:02x}'.format(int(number)), ip.split(".")))
