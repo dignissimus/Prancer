@@ -1,8 +1,8 @@
 import binascii
 import socket
 
-REQUEST = "01"
-RESPONSE = "02"
+REQUEST = "0001"
+RESPONSE = "0002"
 
 
 class Device:
@@ -27,7 +27,7 @@ class Prancer:
     @staticmethod
     def form_payload(receiver, sender, requested, payload_type) -> bytearray:
 
-        stream = [receiver.mac, sender.mac, "0806000108000604", "00" + payload_type]
+        stream = [receiver.mac, sender.mac, "0806000108000604", payload_type]
         if payload_type == REQUEST:
             stream.append(sender.mac)
             stream.append(Prancer.encode_ip(sender.ip))
